@@ -10,6 +10,7 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">Home</button>
   <button class="tablinks" onclick="openCity(event, 'Process Data')">Process Data</button>
+  <button class="tablinks" onclick="openCity(event, 'Generated Files')">Generated Files</button>
   <button class="tablinks" onclick="openCity(event, 'Tree Structure')">Tree Structure</button>
 </div>
 
@@ -61,7 +62,7 @@
     <label for="inputdata">DataSet Name</label></br>
     <input type="text" id="uname" name="name"></br>
 	<label for="inputdata">Actual Data</label></br>
-	<textarea rows="30" cols="150">Paste Data Here</textarea>
+	<textarea rows="30" cols="160">Paste Data Here</textarea>
    
    <div>
     <button>Process Data</button>
@@ -70,6 +71,13 @@
    </div>
   </form>
 </div>
+
+
+<div id="Generated Files" class="tabcontent">
+ <h3>Generated Files</h3>
+ <p>Where the required Excel files are generated from the entered data on tab 2</p>
+</div>
+
   
 <div id="Tree Structure" class="tabcontent">
  <h3>Tree Structure</h3>
