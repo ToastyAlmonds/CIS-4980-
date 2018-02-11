@@ -1,221 +1,112 @@
 <!doctype html>
-<html lang="us">
+<html>
 <head>
-	<meta charset="utf-8">
-	<title>jQuery UI Example Page</title>
-	<link href="jquery-ui.css" rel="stylesheet">
-	<style>
-	body{
-		font-family: "Trebuchet MS", sans-serif;
-		margin: 50px;
-	}
-	.demoHeaders {
-		margin-top: 2em;
-	}
-	#dialog-link {
-		padding: .4em 1em .4em 20px;
-		text-decoration: none;
-		position: relative;
-	}
-	#dialog-link span.ui-icon {
-		margin: 0 5px 0 0;
-		position: absolute;
-		left: .2em;
-		top: 50%;
-		margin-top: -8px;
-	}
-	#icons {
-		margin: 0;
-		padding: 0;
-	}
-	#icons li {
-		margin: 2px;
-		position: relative;
-		padding: 4px 0;
-		cursor: pointer;
-		float: left;
-		list-style: none;
-	}
-	#icons span.ui-icon {
-		float: left;
-		margin: 0 4px;
-	}
-	.fakewindowcontain .ui-widget-overlay {
-		position: absolute;
-	}
-	select {
-		width: 200px;
-	}
-	</style>
-</head>
-<body>
+<title>CIS CAPSTONE RCII Data Preparation</title>
+<h1 style="font:georgia; text-align:center;">RCII Data Manager</h1>
+<hr>
 
-<h1><p align="center">RCII Interface</p></h1>
 
-<div class="ui-widget">
-	<p>This page demonstrates the widgets and theme you selected in Download Builder. Please make sure you are using them with a compatible jQuery version.</p>
+<!--Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Home')" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openCity(event, 'Process Data')">Process Data</button>
+  <button class="tablinks" onclick="openCity(event, 'Tree Structure')">Tree Structure</button>
 </div>
 
-<h1>YOUR COMPONENTS:</h1>
+<style>
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+/*Style the buttons that are used to open the tab content*/
+.tab button {
+	background-color: inherit;
+	float: center;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+//Change background color of buttons on hover
+.tab button:hover {
+	background-color: #ddd;
+}
+//Create an active/current tablink class
+.tab button.active {
+	background-color: #7fffd4;
+}
+//Style the tab content
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+}
+
+
+</style>
+
+<!--Tab content -->
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
+  <p>Insert Summary of Home Tab</p>
+</div>
+
+<div id="Process Data" class="tabcontent">
+  <h3>Process Data</h3>
+  <form>
+   <div>
+    <label for="inputdata">DataSet Name</label></br>
+    <input type="text" id="uname" name="name"></br>
+	<label for="inputdata">Actual Data</label></br>
+	<textarea rows="4" cols="50">Paste Data Here</textarea>
+   
+   <div>
+    <button>Process Data</button>
+   </div>
+   
+   </div>
+  </form>
+</div>
+  
+<div id="Tree Structure" class="tabcontent">
+ <h3>Tree Structure</h3>
+ <p>Where the Generated Tree Structure Appears</p>
+</div>
 
 
 
-
-<!-- Tabs -->
-<h2 class="demoHeaders">Tabs</h2>
-<div id="tabs">
-	<ul>
-		<li><a href="#tabs-1">Raw Data</a></li>
-		<li><a href="#tabs-2">Tree Structure</a></li>
-		<li><a href="#tabs-3">Data errors</a></li>
-		<li><a href="#tabs-4">File transfer</a></li>
-	</ul>
-	<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-	<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
-	<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
-	<div id="tabs-4">Here you can transfer your data to another file
-						<h2 class="demoHeaders">Transfer data</h2>
-						<form>
-						<div>
-						<label for="Transfer data">	
-						
-						<input type="submit" value="Submit">
-						</div>
-						</form>
-						</div>
-
-
-
-
-
-<script src="external/jquery/jquery.js"></script>
-<script src="jquery-ui.js"></script>
+<!--JavaScript--> 
 <script>
+function openCity(event, tabName) {
+  //Declare all variables
+  var i, tabcontent, tablinks;
+  
+  //Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  //Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  //Show the current tab and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}  
 
-$( "#accordion" ).accordion();
-
-
-
-var availableTags = [
-	"ActionScript",
-	"AppleScript",
-	"Asp",
-	"BASIC",
-	"C",
-	"C++",
-	"Clojure",
-	"COBOL",
-	"ColdFusion",
-	"Erlang",
-	"Fortran",
-	"Groovy",
-	"Haskell",
-	"Java",
-	"JavaScript",
-	"Lisp",
-	"Perl",
-	"PHP",
-	"Python",
-	"Ruby",
-	"Scala",
-	"Scheme"
-];
-$( "#autocomplete" ).autocomplete({
-	source: availableTags
-});
+//Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
 
 
 
-$( "#button" ).button();
-$( "#button-icon" ).button({
-	icon: "ui-icon-gear",
-	showLabel: false
-});
 
-
-
-$( "#radioset" ).buttonset();
-
-
-
-$( "#controlgroup" ).controlgroup();
-
-
-
-$( "#tabs" ).tabs();
-
-
-
-$( "#dialog" ).dialog({
-	autoOpen: false,
-	width: 400,
-	buttons: [
-		{
-			text: "Ok",
-			click: function() {
-				$( this ).dialog( "close" );
-			}
-		},
-		{
-			text: "Cancel",
-			click: function() {
-				$( this ).dialog( "close" );
-			}
-		}
-	]
-});
-
-// Link to open the dialog
-$( "#dialog-link" ).click(function( event ) {
-	$( "#dialog" ).dialog( "open" );
-	event.preventDefault();
-});
-
-
-
-$( "#datepicker" ).datepicker({
-	inline: true
-});
-
-
-
-$( "#slider" ).slider({
-	range: true,
-	values: [ 17, 67 ]
-});
-
-
-
-$( "#progressbar" ).progressbar({
-	value: 20
-});
-
-
-
-$( "#spinner" ).spinner();
-
-
-
-$( "#menu" ).menu();
-
-
-
-$( "#tooltip" ).tooltip();
-
-
-
-$( "#selectmenu" ).selectmenu();
-
-
-// Hover states on the static widgets
-$( "#dialog-link, #icons li" ).hover(
-	function() {
-		$( this ).addClass( "ui-state-hover" );
-	},
-	function() {
-		$( this ).removeClass( "ui-state-hover" );
-	}
-);
 </script>
-</body>
+   
+</head>
 </html>
+
